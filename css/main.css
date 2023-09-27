@@ -1,8 +1,13 @@
 body {
   font-family: 'Roboto', Helvetica, sans-serif;
-  background-color: grey;
+  background-color: #f0f0f0; /* Improves background color for better contrast */
   margin: 0;
   padding: 0;
+  line-height: 1.5; /* Sets line height to 1.5 */
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 h1,
@@ -21,10 +26,28 @@ h6 {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
 }
 
-.main-nav ul {
+.skip-links {
+  list-style: none;
+}
+
+.skip-link a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  text-decoration: none;
+  transform: translateY(-100%);
+  transition: transform 0.3s cubic-bezier(0.03, 0.67, 0.27, 1.44);
+}
+
+.skip-link a:focus {
+  transform: translateY(0);
+}
+
+.site-nav ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -32,16 +55,25 @@ img {
   padding: 0;
 }
 
-.main-nav ul li {
+.site-nav ul li {
   flex: 1;
   text-align: center;
 }
 
-.main-nav ul li a {
+.site-nav ul li a {
   display: block;
-  color: inherit;
+  color: #333; /* Improves text color for better contrast */
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: 1rem; /* Changes to rem unit */
+  padding: 0.75rem 1rem; /* Improves padding for better hit area */
+  transition: background-color 0.3s, color 0.3s; /* Adds smooth transition */
+}
+
+.site-nav ul li a:hover,
+.site-nav ul li a:focus {
+  background-color: #000000; /* Improves active state background color */
+  color: #fff; /* Improves active state text color */
+  outline: none;
 }
 
 form input,
@@ -49,23 +81,19 @@ form textarea {
   display: block;
   width: 100%;
   margin-bottom: 1rem;
-  padding: .5rem 1rem;
-}
-
-form textarea {
-  min-height: 150px;
-  max-height: 150px;
-  height: 150px;
-  resize: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem
 }
 
 form button {
+  cursor: pointer;
   background: none;
   border: 2px solid black;
   padding: 1rem;
   text-transform: uppercase;
 }
 
-.site-footer {
+footer {
   padding: 2rem 0;
+  text-align: center;
 }
